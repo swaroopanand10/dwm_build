@@ -1,0 +1,92 @@
+In file included from config.def.h:3:
+movestack.c:2:17: error: ‘Arg’ does not name a type
+    2 | movestack(const Arg *arg) {
+      |                 ^~~
+movestack.c: In function ‘void movestack(const int*)’:
+movestack.c:3:9: error: ‘Client’ was not declared in this scope
+    3 |         Client *c = NULL, *p = NULL, *pc = NULL, *i;
+      |         ^~~~~~
+movestack.c:3:17: error: ‘c’ was not declared in this scope
+    3 |         Client *c = NULL, *p = NULL, *pc = NULL, *i;
+      |                 ^
+movestack.c:3:21: error: ‘NULL’ was not declared in this scope
+    3 |         Client *c = NULL, *p = NULL, *pc = NULL, *i;
+      |                     ^~~~
+movestack.c:1:1: note: ‘NULL’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+  +++ |+#include <cstddef>
+    1 | void
+movestack.c:3:28: error: ‘p’ was not declared in this scope
+    3 |         Client *c = NULL, *p = NULL, *pc = NULL, *i;
+      |                            ^
+movestack.c:3:39: error: ‘pc’ was not declared in this scope
+    3 |         Client *c = NULL, *p = NULL, *pc = NULL, *i;
+      |                                       ^~
+movestack.c:3:51: error: ‘i’ was not declared in this scope
+    3 |         Client *c = NULL, *p = NULL, *pc = NULL, *i;
+      |                                                   ^
+movestack.c:5:17: error: request for member ‘i’ in ‘* arg’, which is of non-class type ‘const int’
+    5 |         if(arg->i > 0) {
+      |                 ^
+movestack.c:7:25: error: ‘selmon’ was not declared in this scope
+    7 |                 for(c = selmon->sel->next; c && (!ISVISIBLE(c) || c->isfloating); c = c->next);
+      |                         ^~~~~~
+movestack.c:7:51: error: ‘ISVISIBLE’ was not declared in this scope
+    7 |                 for(c = selmon->sel->next; c && (!ISVISIBLE(c) || c->isfloating); c = c->next);
+      |                                                   ^~~~~~~~~
+movestack.c:9:33: error: ‘selmon’ was not declared in this scope
+    9 |                         for(c = selmon->clients; c && (!ISVISIBLE(c) || c->isfloating); c = c->next);
+      |                                 ^~~~~~
+movestack.c:9:57: error: ‘ISVISIBLE’ was not declared in this scope
+    9 |                         for(c = selmon->clients; c && (!ISVISIBLE(c) || c->isfloating); c = c->next);
+      |                                                         ^~~~~~~~~
+movestack.c:14:25: error: ‘selmon’ was not declared in this scope
+   14 |                 for(i = selmon->clients; i != selmon->sel; i = i->next)
+      |                         ^~~~~~
+movestack.c:15:28: error: ‘ISVISIBLE’ was not declared in this scope
+   15 |                         if(ISVISIBLE(i) && !i->isfloating)
+      |                            ^~~~~~~~~
+movestack.c:19:36: error: ‘ISVISIBLE’ was not declared in this scope
+   19 |                                 if(ISVISIBLE(i) && !i->isfloating)
+      |                                    ^~~~~~~~~
+movestack.c:23:17: error: ‘selmon’ was not declared in this scope
+   23 |         for(i = selmon->clients; i && (!p || !pc); i = i->next) {
+      |                 ^~~~~~
+movestack.c:31:22: error: ‘selmon’ was not declared in this scope
+   31 |         if(c && c != selmon->sel) {
+      |                      ^~~~~~
+movestack.c:32:25: error: ‘temp’ was not declared in this scope
+   32 |                 Client *temp = selmon->sel->next==c?selmon->sel:selmon->sel->next;
+      |                         ^~~~
+movestack.c:46:17: error: ‘arrange’ was not declared in this scope
+   46 |                 arrange(selmon);
+      |                 ^~~~~~~
+config.def.h: At global scope:
+config.def.h:19:10: error: ‘SchemeNorm’ was not declared in this scope
+   19 |         [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+      |          ^~~~~~~~~~
+config.def.h:20:10: error: ‘SchemeSel’ was not declared in this scope
+   20 |         [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+      |          ^~~~~~~~~
+config.def.h:26:14: error: ‘Rule’ does not name a type
+   26 | static const Rule rules[] = {
+      |              ^~~~
+config.def.h:44:14: error: ‘Layout’ does not name a type
+   44 | static const Layout layouts[] = {
+      |              ^~~~~~
+config.def.h:64:153: error: ‘NULL’ was not declared in this scope
+   64 | static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+      |                                                                                                                                                         ^~~~
+config.def.h:4:1: note: ‘NULL’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+    3 | #include "movestack.c"
+  +++ |+#include <cstddef>
+    4 | /* appearance */
+config.def.h:66:44: error: ‘NULL’ was not declared in this scope
+   66 | static const char *termcmd[]  = { "kitty", NULL };
+      |                                            ^~~~
+config.def.h:66:44: note: ‘NULL’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+config.def.h:68:14: error: ‘Key’ does not name a type
+   68 | static const Key keys[] = {
+      |              ^~~
+config.def.h:113:14: error: ‘Button’ does not name a type
+  113 | static const Button buttons[] = {
+      |              ^~~~~~
