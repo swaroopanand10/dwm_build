@@ -8,7 +8,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+// static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "JetBrainsMono NF:size=11" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -69,6 +70,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define ALTKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -82,7 +84,12 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *roficmd[] = { "rofi", "-show", "drun" };
+// static const char *rofi_greenclip_cmd[] = { "rofi", "-modi", "show" };
 static const char *termcmd[]  = { "kitty", NULL };
+static const char *volumeup[]  = { "/home/swaroop/dotstow/common/scripts/notification/volume/volume.sh", "up" , NULL};
+static const char *volumedown[]  = { "/home/swaroop/dotstow/common/scripts/notification/volume/volume.sh", "down" , NULL};
+static const char *volumemute[]  = { "/home/swaroop/dotstow/common/scripts/notification/volume/volume.sh", "mute" , NULL};
+static const char *mpd_toggle[]  = { "mpc", "toggle" , NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -115,9 +122,13 @@ static const Key keys[] = {
 	// { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                        XK_y,     togglescratch,  {.ui = 0 } },
-	{ MODKEY,                        XK_comma,   togglescratch,  {.ui = 1 } },
-	{ MODKEY,                        XK_b,   togglescratch,  {.ui = 2 } },
+	{ MODKEY,                       XK_y,     togglescratch,  {.ui = 0 } },
+	{ MODKEY,                       XK_comma,   togglescratch,  {.ui = 1 } },
+	{ MODKEY,                       XK_slash,   togglescratch,        {.ui = 2 } },
+	{ MODKEY,                       XK_a,   spawn,                {.v = volumemute } },
+	{ ALTKEY|ShiftMask,                       XK_minus,  spawn,             {.v = volumedown } },
+	{ ALTKEY|ShiftMask,                       XK_equal,   spawn,            {.v = volumeup } },
+	{ ALTKEY,                       XK_a,   spawn,            {.v = mpd_toggle } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
