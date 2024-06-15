@@ -25,14 +25,14 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"kitty", "-e", "ncmpcpp", "-g", "120x34", NULL };
-const char *spcmd2[] = {"kitty", "-g", "144x41", NULL };
-const char *spcmd3[] = {"kitty", "-e", "btm", "-g", "120x34", NULL };
+const char *spcmd1[] = {"kitty", "--name", "ncmpcpp","--config","/home/swaroop/.config/kitty/kitty.conf", "-e", "ncmpcpp", NULL };
+const char *spcmd2[] = {"kitty","--name","kittyterm" , NULL, NULL, NULL };
+const char *spcmd3[] = {"kitty", "--name", "btm","--config","/home/swaroop/.config/kitty/kitty.conf", "-e", "btm", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"ncmpcpp",      spcmd1},
-	{"spranger",    spcmd2},
-	{"keepassxc",   spcmd3},
+	{"kittyterm",    spcmd2},
+	{"btm",   spcmd3},
 };
 
 /* tagging */
@@ -49,9 +49,9 @@ static const Rule rules[] = {
 	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ "kitty",   NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
-	{ NULL,     "ncmpcpp",    NULL,         SPTAG(0),  1,          0,           0,        -1 },
-	{ NULL,     "spfm",      NULL,         SPTAG(1),  1,          0,           0,        -1 },
-	{ NULL,     "keepassxc", NULL,         SPTAG(2),  0,          0,           0,        -1 },
+	{ NULL,     "ncmpcpp",   NULL,        SPTAG(0),  1,          0,           0,        -1 },
+	{ NULL,     "kittyterm",    NULL,      SPTAG(1),  1,          0,           0,        -1 },
+	{ NULL,     "btm",       NULL,         SPTAG(2),  1,          0,           0,        -1 },
 };
 
 /* layout(s) */
